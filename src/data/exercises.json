@@ -1,0 +1,30 @@
+{
+    "exercises":[
+    {
+        "id": 1,
+        "name": "SmartCounter with Hold-to-Increment",
+        "url":"Counter"
+    },
+    {
+        "id": 2,
+        "name": "SearchUsers with Debounce and Request Cancellation",
+        "url":"searchDebounce"
+    },
+    {
+        "id": 3,
+        "name": "Optimized Product List with Filtering and Sorting",
+        "url":"List-sorting"
+    },
+    {
+        "id": 4,
+        "name": "Reusable useAsync Custom Hook",
+        "url":"Custom-hook"
+    },
+    {
+        "id": 5,
+        "name": "Dashboard Architecture Design",
+        "url": "Dashboard"
+
+    }
+]
+}
