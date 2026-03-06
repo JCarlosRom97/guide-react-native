@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 type User = {
   id: number;
@@ -11,34 +11,28 @@ type SearchState = {
   users: User[];
   loading: boolean;
   error: string;
-  controller: AbortController | null;
-  timeoutId: ReturnType<typeof setTimeout> | null;
 
   setQuery: (query: string) => void;
-  fetchUsers: (query: string) => void;
+  fetchUsers: (query: string) => Promise<void>;
   clear: () => void;
 };
 
+let controller: AbortController | null = null;
+let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
 export const useSearchStore = create<SearchState>((set, get) => ({
-  query: '',
+  query: "",
   users: [],
   loading: false,
-  error: '',
-  controller: null,
-  timeoutId: null,
+  error: "",
 
   setQuery: (query) => {
     set({ query });
     get().fetchUsers(query);
   },
 
-  fetchUsers: (query) => {
-    const { controller, timeoutId } = get();
-
-    // limpiar timeout anterior
+  fetchUsers: async (query) => {
     if (timeoutId) clearTimeout(timeoutId);
-
-    // cancelar request anterior
     if (controller) controller.abort();
 
     if (!query.trim()) {
@@ -46,42 +40,45 @@ export const useSearchStore = create<SearchState>((set, get) => ({
       return;
     }
 
-    const newController = new AbortController();
+    controller = new AbortController();
 
-    const newTimeout = setTimeout(async () => {
+    timeoutId = setTimeout(async () => {
       try {
-        set({ loading: true, error: '', controller: newController });
+        set({ loading: true, error: "" });
 
         const response = await fetch(
           `https://jsonplaceholder.typicode.com/users?name_like=${query}`,
-          { signal: newController.signal }
+          { signal: controller?.signal }
         );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
 
         const data: User[] = await response.json();
 
         set({ users: data });
       } catch (err) {
-        if (err instanceof Error && err.name !== 'AbortError') {
-          set({ error: err.message });
-        }
+        if (err instanceof DOMException && err.name === "AbortError") return;
+
+        set({
+          error: err instanceof Error ? err.message : "Unknown error",
+        });
       } finally {
         set({ loading: false });
       }
     }, 500);
-
-    set({ timeoutId: newTimeout });
   },
 
   clear: () => {
-    const { controller, timeoutId } = get();
     if (controller) controller.abort();
     if (timeoutId) clearTimeout(timeoutId);
 
     set({
-      query: '',
+      query: "",
       users: [],
       loading: false,
-      error: '',
+      error: "",
     });
   },
 }));
