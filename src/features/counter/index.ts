@@ -1,1 +1,1 @@
-export * from './screens/Counter';
+export * from './CounterScreen';

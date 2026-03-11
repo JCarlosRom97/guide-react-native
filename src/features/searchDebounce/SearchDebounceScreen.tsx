@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native';
-import { useSearchStore } from '../../../store/useSearchStore';
+import { useSearchStore } from './store/useSearchStore';
 
 export const SearchDebounce = () => {
   const { query, users, loading, error, setQuery } = useSearchStore();

@@ -1,1 +1,1 @@
-export * from './screens/SearchDebounce';
+export * from './SearchDebounceScreen';

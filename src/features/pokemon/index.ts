@@ -1,1 +1,1 @@
-export { Pokemon } from "./screens/Pokemon";
+export { Pokemon } from "./PokemonScreen";

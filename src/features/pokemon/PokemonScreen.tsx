@@ -1,12 +1,12 @@
 import { FlatList, View } from "react-native"
-import { usePokemonStore } from "../../../store/usePokemonStore"
+import { usePokemonStore } from "./store/usePokemonStore"
 import { useCallback, useEffect } from "react";
-import { TextComponent } from "../../../components/Text/TextComponent";
-import { ItemList } from "../components/ItemList/ItemList";
+import { TextComponent } from "../../components/Text/TextComponent";
+import { ItemList } from "./components/ItemList/ItemList";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../navigation/RootNavigator";
-import { pokemonListType } from "../../../types";
+import { RootStackParamList } from "../../navigation/RootNavigator";
+import { pokemonListType } from "../../types";
 export const Pokemon = () => {
     type PokemonNavigationProp =
         NativeStackNavigationProp<RootStackParamList, "Pokemon">;
