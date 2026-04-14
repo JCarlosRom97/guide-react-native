@@ -1,50 +1,64 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  header: {
-    padding: 30,
+  safe: {
     backgroundColor: "#34405b",
-    borderRadius: 10,
+  },
+
+  header: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: "#34405b",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 
   headerText: {
-    color: "rgb(251,251,251)",
-    fontSize: 24,
-    marginTop: 30
-  },
-
-  menuOptionsText:{
-    color: "rgb(251,251,251)",
-    fontSize: 20,
-    marginTop: 30
-  },
-
-  headerTextHover: {
-    color: "rgb(202,209,250)",
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600",
   },
 
   containerButtonsHeader: {
     flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+
+  menuButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+  },
+
+  pressed: {
+    opacity: 0.5,
+  },
+
+  menuOptionsText: {
+    color: "#fff",
+    fontSize: 14,
   },
 
   dropdown: {
     position: "absolute",
-    top: 60,
-    left: 0,
+    top: 40,
+    right: 0,
     backgroundColor: "#2a2a2a",
-    flexDirection: "column",
-    minWidth: 180,
-    borderRadius: 12,
-    shadowColor: "#000",
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 5,
+    borderRadius: 10,
+    paddingVertical: 8,
+    minWidth: 150,
+    elevation: 6,
   },
 
-  button: {
-    fontSize: 22,
-    color: "#c3c4ff",
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-  }
+  dropdownItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+  },
+
+  dropdownText: {
+    color: "#fff",
+    fontSize: 14,
+  },
 });

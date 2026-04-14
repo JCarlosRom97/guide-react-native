@@ -10,7 +10,7 @@ export const Home = () => {
     <SectionList
       sections={[
         { title: 'React Core', data: exercisesReactHooks },
-        { title: 'React Web', data: exercisesReactWeb },
+        { title: 'React Native', data: exercisesReactWeb },
       ]}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <ButtonList exercise={item} />}
