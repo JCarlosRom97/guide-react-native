@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { pokemonListType } from "../types";
+import { pokemonListType } from "./../../../types/index";
 type pokemonState = {
     pokemons:pokemonListType[]
     loading: boolean,
@@ -22,3 +22,5 @@ export const usePokemonStore = create<pokemonState>((set, get)=>({
         }
     }
 }))
+
+usePokemonStore.getState().fetchPokemons();

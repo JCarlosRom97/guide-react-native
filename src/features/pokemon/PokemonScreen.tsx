@@ -10,14 +10,8 @@ import { pokemonListType } from "../../types";
 export const Pokemon = () => {
     type PokemonNavigationProp =
         NativeStackNavigationProp<RootStackParamList, "Pokemon">;
-    const { pokemons, fetchPokemons, loading, error } = usePokemonStore();
+    const { pokemons, loading, error } = usePokemonStore();
     const { navigate } = useNavigation<PokemonNavigationProp>();
-
-    useEffect(() => {
-        fetchPokemons();
-        console.log(pokemons);
-
-    }, [])
 
     const handleClick = useCallback((url: string) => {
         console.log(url);
