@@ -23,6 +23,6 @@ export const exercisesReactWeb: Exercise[] = [
     {
         id: 4,
         name: "Optimized Product List with Filtering and Sorting",
-        url:"list-sorting"
+        url:"listSorting"
     },
 ]

@@ -34,7 +34,7 @@ export const Pokemon = () => {
 
     return (
         <View>
-            <TextComponent title="Pokemon!" />
+            <TextComponent variant="h2" title="Pokemon!" />
             <View >
                 <FlatList
                     data={pokemons}

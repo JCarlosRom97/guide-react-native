@@ -7,7 +7,7 @@ export const Header = () => {
 
     return (
         <View style={styles.header}>
-            <Text style={styles.headerText}>ReactJS Technical Exercises</Text>
+            <Text style={styles.headerText}>React Native Technical Exercises</Text>
             <View style={styles.containerButtonsHeader}>
                 <Pressable onPress={() => navigation.navigate('Home' as never)} ><Text style={styles.menuOptionsText}>Home</Text></Pressable>
                 <View style={styles.dropdown}>

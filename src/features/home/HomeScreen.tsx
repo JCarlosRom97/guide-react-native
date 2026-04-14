@@ -1,16 +1,22 @@
 import { exercisesReactHooks } from '../../data/mocks/exercisesReactHooks';
 import { exercisesReactWeb } from '../../data/mocks/exercisesReactWeb';
-import { ExerciseList } from '../counter/ExercisesList';
 import { TextComponent } from '../../components/Text/TextComponent';
+import { SectionList } from 'react-native';
+import { ButtonList } from '../../components/ExercisesList/ButtonList';
 
 export const Home = () => {
 
-  return (
-    <>
-      <TextComponent title='React Core' />
-      <ExerciseList list={exercisesReactHooks} />
-      <TextComponent title='React Web' />
-      <ExerciseList list={exercisesReactWeb} />
-    </>
+   return (
+    <SectionList
+      sections={[
+        { title: 'React Core', data: exercisesReactHooks },
+        { title: 'React Web', data: exercisesReactWeb },
+      ]}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => <ButtonList exercise={item} />}
+      renderSectionHeader={({ section }) => (
+        <TextComponent title={section.title} />
+      )}
+    />
   );
 }

@@ -13,7 +13,7 @@ export const exercisesReactHooks: Exercise[] = [
        {
         id: 2,
         name: "Async/Await Promises",
-        url:"async"
+        url:"Async"
     },
 
 ]

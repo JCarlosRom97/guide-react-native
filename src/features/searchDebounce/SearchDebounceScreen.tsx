@@ -1,4 +1,5 @@
 import { styles } from './SearchDebounceStyles';
+import { globalStyles } from '../../GlobalStyles';
 import {
   View,
   Text,
@@ -7,9 +8,15 @@ import {
   FlatList,
 } from 'react-native';
 import { useSearchStore } from './store/useSearchStore';
+import { useEffect } from 'react';
 
 export const SearchDebounce = () => {
-  const { query, users, loading, error, setQuery } = useSearchStore();
+  const { query, users, loading, error, setQuery, fetchUsers } = useSearchStore();
+
+  
+  useEffect(() => {
+    fetchUsers("");
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -28,8 +35,8 @@ export const SearchDebounce = () => {
         data={users}
         keyExtractor={(user) => user.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.userContainer}>
-            <Text style={styles.user}>{item.name}</Text>
+          <View style={globalStyles.Container}>
+            <Text style={globalStyles.elementTitle}>{item.name}</Text>
             <Text style={styles.email}>{item.email}</Text>
           </View>
         )}

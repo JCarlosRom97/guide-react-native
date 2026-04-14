@@ -3,8 +3,6 @@ import { styles } from './ButtonListStyles';
 import { Pressable, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-/* import { useNavigate } from 'react-router-dom' */
 type exerciseType = {
     id: number,
     name: string,

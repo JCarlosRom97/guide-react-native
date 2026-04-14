@@ -35,10 +35,9 @@ export const useSearchStore = create<SearchState>((set, get) => ({
     if (timeoutId) clearTimeout(timeoutId);
     if (controller) controller.abort();
 
-    if (!query.trim()) {
-      set({ users: [], loading: false });
-      return;
-    }
+    const url = query.trim()
+      ? `https://jsonplaceholder.typicode.com/users?name_like=${query}`
+      : `https://jsonplaceholder.typicode.com/users`;
 
     controller = new AbortController();
 
@@ -47,7 +46,7 @@ export const useSearchStore = create<SearchState>((set, get) => ({
         set({ loading: true, error: "" });
 
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/users?name_like=${query}`,
+          url,
           { signal: controller?.signal }
         );
 

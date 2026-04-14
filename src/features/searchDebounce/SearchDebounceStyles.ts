@@ -17,25 +17,12 @@ export const styles = StyleSheet.create({
         backgroundColor: '#1e293b',
         color: '#fff',
     },
-    user: {
-        fontSize: 16,
-        padding: 10,
-        marginVertical: 4,
-        borderRadius: 8,
-        backgroundColor: '#334155',
-        color: '#fff',
-    },
     loading: {
         marginVertical: 10,
     },
     error: {
         color: '#ef4444',
         marginVertical: 10,
-    },
-    userContainer: {
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#334155',
     },
     email: {
         fontSize: 12,

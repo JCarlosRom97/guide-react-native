@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     padding: 30,
     backgroundColor: "#34405b",
     borderRadius: 10,
-    marginBottom: 50,
   },
 
   headerText: {

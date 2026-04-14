@@ -2,6 +2,7 @@ import { memo } from "react";
 import { pokemonListType } from "../../../../types";
 import { Pressable, View } from "react-native";
 import { TextComponent } from "../../../../components/Text/TextComponent";
+import { globalStyles } from "../../../../GlobalStyles";
 
 type pokemonItemProps = {
     pokemon:pokemonListType,
@@ -12,8 +13,8 @@ export const ItemList = memo(({pokemon, onClickItem}: pokemonItemProps)=>{
     console.log('pokemonItem');
     
     return(
-        <View>
-            <TextComponent title={pokemon.name}/>
+        <View style={globalStyles.Container}>
+            <TextComponent style={globalStyles.elementTitle} title={pokemon.name}/>
             <Pressable  onPress={() => onClickItem(pokemon.url)}><TextComponent title="Go!"/></Pressable>
         </View>
     )
